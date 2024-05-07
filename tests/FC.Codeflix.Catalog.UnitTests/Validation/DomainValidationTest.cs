@@ -120,4 +120,31 @@ public class DomainValidationTest
             yield return new object[] {example, minLength};
         }
     }
+
+    [Theory(DisplayName = nameof(maxLengthThrowWhenGreater))]
+    [Trait("Domain", "DomainValidation - Validation")]
+    [MemberData(nameof(GetValuesGreaterThanMax), parameters: 10)]
+    public void maxLengthThrowWhenGreater(string target, int maxLength)
+    {
+        string fieldName = Faker.Commerce.ProductName().Replace(" ", "");
+
+        Action action =
+            () => DomainValidation.MaxLength(target, maxLength, fieldName);
+
+        action.Should().Throw<EntityValidationException>()
+            .WithMessage($"{fieldName} should be less or equal {maxLength} characters long.");
+    }
+
+    public static IEnumerable<object[]> GetValuesGreaterThanMax(int numberOftests = 5)
+    {
+        yield return new object[] {"123456", 5};
+        var faker = new Faker();
+
+        for (int i = 0; i < (numberOftests - 1); i++)
+        {
+            var example = faker.Commerce.ProductName();
+            var maxLength = example.Length - (new Random()).Next(1, 5);
+            yield return new object[] {example, maxLength};
+        }
+    }
 }
