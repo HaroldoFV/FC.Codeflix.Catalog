@@ -93,4 +93,31 @@ public class DomainValidationTest
             yield return [example, minLength];
         }
     }
+
+
+    [Theory(DisplayName = nameof(MinLengthOk))]
+    [Trait("Domain", "DomainValidation - Validation")]
+    [MemberData(nameof(GetValuesGreaterThanMin), parameters: 10)]
+    public void MinLengthOk(string target, int minLength)
+    {
+        string fieldName = Faker.Commerce.ProductName().Replace(" ", "");
+
+        Action action =
+            () => DomainValidation.MinLength(target, minLength, fieldName);
+
+        action.Should().NotThrow();
+    }
+
+    public static IEnumerable<object[]> GetValuesGreaterThanMin(int numberOftests = 5)
+    {
+        yield return new object[] {"123456", 6};
+        var faker = new Faker();
+
+        for (int i = 0; i < (numberOftests - 1); i++)
+        {
+            var example = faker.Commerce.ProductName();
+            var minLength = example.Length - (new Random()).Next(1, 5);
+            yield return new object[] {example, minLength};
+        }
+    }
 }
