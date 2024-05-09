@@ -41,4 +41,11 @@ public class CreateCategoryTest(CreateCategoryTestFixture fixture)
         output.Id.Should().NotBeEmpty();
         output.CreatedAt.Should().NotBeSameDateAs(default);
     }
+
+
+    [Theory(DisplayName = nameof(ThrowWhenCantInstantiateAggregate))]
+    [Trait("Application", "CreateCategory - Use Cases")]
+    public void ThrowWhenCantInstantiateAggregate()
+    {
+    }
 }
