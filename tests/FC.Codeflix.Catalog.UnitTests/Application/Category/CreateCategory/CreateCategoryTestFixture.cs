@@ -1,4 +1,5 @@
-﻿using FC.Codeflix.Catalog.UnitTests.Application.Category.Common;
+﻿using FC.Codeflix.Catalog.Application.UseCases.Category.CreateCategory;
+using FC.Codeflix.Catalog.UnitTests.Application.Category.Common;
 
 namespace FC.Codeflix.Catalog.UnitTests.Application.Category.CreateCategory;
 

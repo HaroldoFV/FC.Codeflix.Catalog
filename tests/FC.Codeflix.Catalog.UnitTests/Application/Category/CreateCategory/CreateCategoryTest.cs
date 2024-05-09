@@ -1,5 +1,7 @@
-
+using FluentAssertions;
+using Moq;
 using UseCases = FC.Codeflix.Catalog.Application.UseCases.Category.CreateCategory;
+using DomainEntity = FC.Codeflix.Catalog.Domain.Entity;
 
 namespace FC.Codeflix.Catalog.UnitTests.Application.Category.CreateCategory;
 
@@ -22,7 +24,7 @@ public class CreateCategoryTest(CreateCategoryTestFixture fixture)
 
         repositoryMock.Verify(
             repository => repository.Insert(
-                It.IsAny<Domain.Entity.Category>(),
+                It.IsAny<DomainEntity.Category>(),
                 It.IsAny<CancellationToken>()
             ),
             Times.Once
