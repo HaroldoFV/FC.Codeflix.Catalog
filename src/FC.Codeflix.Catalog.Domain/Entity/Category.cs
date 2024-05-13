@@ -21,6 +21,20 @@ public class Category : AggregateRoot
         Validate();
     }
 
+    public void Activate()
+    {
+        IsActive = true;
+
+        Validate();
+    }
+
+    public void Deactivate()
+    {
+        IsActive = false;
+
+        Validate();
+    }
+
     public void Update(string name, string? description = null)
     {
         Name = name;

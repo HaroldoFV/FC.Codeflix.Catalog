@@ -1,4 +1,5 @@
 using FC.Codeflix.Catalog.Application.Interfaces;
+using FC.Codeflix.Catalog.Application.UseCases.Category.Common;
 using FC.Codeflix.Catalog.Domain.Repository;
 using DomainEntity = FC.Codeflix.Catalog.Domain.Entity;
 
