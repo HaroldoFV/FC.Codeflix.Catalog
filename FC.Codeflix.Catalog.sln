@@ -10,6 +10,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FC.Codeflix.Catalog.Domain"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FC.Codeflix.Catalog.Application", "src\FC.Codeflix.Catalog.Application\FC.Codeflix.Catalog.Application.csproj", "{A60A951E-2C6C-41E1-8235-F0ED2EF15D20}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FC.Codeflix.Catalog.IntegrationTests", "tests\FC.Codeflix.Catalog.IntegrationTests\FC.Codeflix.Catalog.IntegrationTests.csproj", "{861249FD-9801-4FB0-AF77-6A2898F2185A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FC.Codeflix.Catalog.Infra.Data.EF", "src\FC.Codeflix.Catalog.Infra.Data.EF\FC.Codeflix.Catalog.Infra.Data.EF.csproj", "{D60AD64B-9877-4C3B-B4FF-64058DDB9B08}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,10 +32,20 @@ Global
 		{A60A951E-2C6C-41E1-8235-F0ED2EF15D20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A60A951E-2C6C-41E1-8235-F0ED2EF15D20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A60A951E-2C6C-41E1-8235-F0ED2EF15D20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{861249FD-9801-4FB0-AF77-6A2898F2185A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{861249FD-9801-4FB0-AF77-6A2898F2185A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{861249FD-9801-4FB0-AF77-6A2898F2185A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{861249FD-9801-4FB0-AF77-6A2898F2185A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D60AD64B-9877-4C3B-B4FF-64058DDB9B08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D60AD64B-9877-4C3B-B4FF-64058DDB9B08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D60AD64B-9877-4C3B-B4FF-64058DDB9B08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D60AD64B-9877-4C3B-B4FF-64058DDB9B08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{5CA77E7A-28DB-48CD-BFC5-B56C68178B2B} = {62660C5F-94EA-4CD0-B203-4C254AFD153D}
 		{9B53506D-05A3-4057-91A4-0B0ACFDB374A} = {3C33A0C8-8715-4403-888C-4D78F0B062D2}
 		{A60A951E-2C6C-41E1-8235-F0ED2EF15D20} = {3C33A0C8-8715-4403-888C-4D78F0B062D2}
+		{861249FD-9801-4FB0-AF77-6A2898F2185A} = {62660C5F-94EA-4CD0-B203-4C254AFD153D}
+		{D60AD64B-9877-4C3B-B4FF-64058DDB9B08} = {3C33A0C8-8715-4403-888C-4D78F0B062D2}
 	EndGlobalSection
 EndGlobal
