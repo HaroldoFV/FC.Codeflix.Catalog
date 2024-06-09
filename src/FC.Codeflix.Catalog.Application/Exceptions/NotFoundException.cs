@@ -5,8 +5,7 @@ public class NotFoundException(string? message)
 {
     public static void ThrowIfNull(
         object? @object,
-        string exceptionMessage
-    )
+        string exceptionMessage)
     {
         if (@object is null)
             throw new NotFoundException(exceptionMessage);

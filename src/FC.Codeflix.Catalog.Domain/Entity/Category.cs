@@ -10,8 +10,11 @@ public class Category : AggregateRoot
     public bool IsActive { get; private set; }
     public DateTime CreatedAt { get; private set; }
 
-    public Category(string name, string description, bool isActive = true)
-        : base()
+    public Category(
+        string name,
+        string description,
+        bool isActive = true
+    ) : base()
     {
         Name = name;
         Description = description;
