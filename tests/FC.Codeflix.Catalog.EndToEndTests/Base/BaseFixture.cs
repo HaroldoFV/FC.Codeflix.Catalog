@@ -7,6 +7,7 @@ namespace FC.Codeflix.Catalog.EndToEndTests.Base;
 public class BaseFixture
 {
     protected Faker Faker { get; set; } = new("pt_BR");
+    public ApiClient ApiClient { get; set; }
 
     public CodeflixCatalogDbContext CreateDbContext()
     {
