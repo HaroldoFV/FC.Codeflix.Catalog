@@ -9,6 +9,7 @@ public class ApiClient(HttpClient httpClient)
         string route,
         object payload
     )
+        where TOutput : class
     {
         var response = await httpClient.PostAsync(
             route,
@@ -19,12 +20,14 @@ public class ApiClient(HttpClient httpClient)
             )
         );
         var outputString = await response.Content.ReadAsStringAsync();
-        var output = JsonSerializer.Deserialize<TOutput>(outputString,
-            new JsonSerializerOptions
-            {
-                PropertyNameCaseInsensitive = true
-            }
-        );
+        TOutput? output = null;
+        if (!string.IsNullOrWhiteSpace(outputString))
+            output = JsonSerializer.Deserialize<TOutput>(outputString,
+                new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                }
+            );
         return (response, output);
     }
 }
