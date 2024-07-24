@@ -1,11 +1,16 @@
 ﻿using System.Net;
 using FC.Codeflix.Catalog.Application.UseCases.Category.Common;
+using FC.Codeflix.Catalog.Application.UseCases.Category.CreateCategory;
 using FluentAssertions;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace FC.Codeflix.Catalog.EndToEndTests.Api.Category.CreateCategory;
 
 [Collection(nameof(CreateCategoryApiTestFixture))]
-public class CreateCategoryApiTest(CreateCategoryApiTestFixture fixture)
+public class CreateCategoryApiTest(
+    CreateCategoryApiTestFixture fixture
+) : IDisposable
 {
     [Fact(DisplayName = nameof(CreateCategory))]
     [Trait("EndToEnd/API", "Category/Create - Endpoints")]
@@ -39,7 +44,7 @@ public class CreateCategoryApiTest(CreateCategoryApiTestFixture fixture)
             .NotBeSameDateAs(default);
     }
 
-    /*[Theory(DisplayName = nameof(ErrorWhenCantInstantiateAggregate))]
+    [Theory(DisplayName = nameof(ErrorWhenCantInstantiateAggregate))]
     [Trait("EndToEnd/API", "Category/Create - Endpoints")]
     [MemberData(
         nameof(CreateCategoryApiTestDataGenerator.GetInvalidInputs),
@@ -50,7 +55,7 @@ public class CreateCategoryApiTest(CreateCategoryApiTestFixture fixture)
         string expectedDetail
     )
     {
-        var (response, output) = await _fixture.ApiClient.Post<ProblemDetails>(
+        var (response, output) = await fixture.ApiClient.Post<ProblemDetails>(
             "/categories",
             input
         );
@@ -58,12 +63,12 @@ public class CreateCategoryApiTest(CreateCategoryApiTestFixture fixture)
         response.Should().NotBeNull();
         response!.StatusCode.Should().Be(HttpStatusCode.UnprocessableEntity);
         output.Should().NotBeNull();
-        output!.Title.Should().Be("One or more validation errors ocurred");
+        output!.Title.Should().Be("One or more validation errors occurred.");
         output.Type.Should().Be("UnprocessableEntity");
-        output.Status.Should().Be((int)StatusCodes.Status422UnprocessableEntity);
+        output.Status.Should().Be(StatusCodes.Status422UnprocessableEntity);
         output.Detail.Should().Be(expectedDetail);
     }
 
     public void Dispose()
-        => _fixture.CleanPersistence();*/
+        => fixture.CleanPersistence();
 }
